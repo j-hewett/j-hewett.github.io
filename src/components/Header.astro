@@ -6,3 +6,34 @@
     <a href="/abriCSV">abriCSV</a>
   </nav>
 </header>
+
+<style>
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        background-color: var(--background);
+        border-bottom: 1px solid var(--lines);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    header nav {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    header a {
+        color: var(--black);
+        text-decoration: none;
+        font-family: 'Work Sans';
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    header a:hover {
+        color: var(--black);
+    }
+</style>
