@@ -1,0 +1,77 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  subtitle: string;
+  image: string;
+}
+
+const { href, title, subtitle, image } = Astro.props;
+---
+
+<a class="project-card" href={href} style={`background-image: url(${image})`}>
+  <div class="overlay">
+    <h3>{title}</h3>
+    <p>{subtitle}</p>
+  </div>
+</a>
+
+<style>
+  .project-card {
+    position: relative;
+    display: block;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.25rem;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.15) 55%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .project-card:hover .overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .overlay h3 {
+    color: white;
+    font-family: 'Work Sans';
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 0.25rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .overlay p {
+    color: rgba(255, 255, 255, 0.85);
+    font-family: 'Work Sans';
+    font-weight: 400;
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  .project-card {
+    transition: transform 0.4s ease;
+  }
+  .project-card:hover {
+    transform: scale(1.01);
+  }
+</style>

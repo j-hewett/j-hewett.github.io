@@ -1,0 +1,43 @@
+---
+import ProjectCard from './ProjectCard.astro';
+
+const projects = [
+  {
+    href: '/project/robotichoof',
+    title: 'Hooves for quadruped robots',
+    subtitle: 'bio-inspired soft robotics for real terrain',
+    image: '/images/robothoof.png',
+  },
+  {
+    href: '/project/biteforces',
+    title: 'Measuring insect bite forces',
+    subtitle: 'low-cost, 3D-printed research equipment',
+    image: '/images/biteforce.jpg',
+  }
+];
+---
+
+<div class="project-grid">
+  {projects.map((project) => <ProjectCard {...project} />)}
+</div>
+
+<style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 2rem;
+  }
+
+  @media (max-width: 900px) {
+    .project-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
