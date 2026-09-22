@@ -4,6 +4,7 @@ interface Props {
 }
 const { title } = Astro.props;
 import Header from '../components/Header.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 ---
@@ -22,6 +23,7 @@ import '../styles/global.css';
     <main>
       <slot />
     </main>
+    <ProjectGrid />
     <Footer />
   </body>
 </html>
